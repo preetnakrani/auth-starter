@@ -1,0 +1,24 @@
+{
+  "name": "project-combined",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "initial": "(npm install) && (cd project-backend && npm install) && (cd project-client && npm install)",
+    "start": "concurrently -p \"[{name}]\" -n \"client,server\" -c \"bgBlue.bold,bgMagenta.bold\" \"(cd project-client && npm run start)\" \"(cd project-backend && npm run start)\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preetnakrani/project-combined.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/preetnakrani/project-combined/issues"
+  },
+  "homepage": "https://github.com/preetnakrani/project-combined#readme",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}

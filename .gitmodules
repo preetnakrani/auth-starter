@@ -1,0 +1,6 @@
+[submodule "project-client"]
+	path = project-client
+	url = https://github.com/preetnakrani/project-client.git
+[submodule "project-backend"]
+	path = project-backend
+	url = https://github.com/preetnakrani/project-backend.git
