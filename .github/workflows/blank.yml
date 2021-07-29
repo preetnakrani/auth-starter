@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,22 +23,23 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout repo
         uses: actions/checkout@v2
-        
+
       - name: checkout submodules
         run: git submodule foreach git checkout main
-        
+
       - name: pulll submodules
         run: git submodule foreach git pull
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-        
-      - name: Deploy to Heroku
-        uses: behe/heroku-build@v1
+
+      - uses: CDNievas/heroku-action@v1.0 # This is the action
         with:
-          app-name: "project-combined"
-          api-key: "${{secrets.HEROKU_API_KEY}}"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "project-combined"
+          dynamicFiles: true
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
