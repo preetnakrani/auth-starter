@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "initial": "(npm install) && (cd project-backend && npm install) && (cd project-client && npm install)",
-    "start": "concurrently -p \"[{name}]\" -n \"client,server\" -c \"white.bold.bgBlue.bold,white.bold.bgMagenta.bold\" \"(cd project-client && npm run start)\" \"(cd project-backend && npm run start)\""
+    "dev": "concurrently -p \"[{name}]\" -n \"client,server\" -c \"white.bold.bgBlue.bold,white.bold.bgMagenta.bold\" \"(cd project-client && npm run start)\" \"(cd project-backend && npm run start)\"",
+    "heroku-prebuild": "(git submodule foreach git checkout main) && (git submodule foreach git pull)",
+    "start": "(cd project-backend && npm run deploy)",
+    "install": "(cd project-client && npm install) && (cd project-backend && npm install)",
+    "build": "(cd project-client && npm run build)"
   },
   "repository": {
     "type": "git",
