@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/preetnakrani/project-combined#readme",
   "dependencies": {
-    "concurrently": "^6.2.0",
-    "prop-types": "^15.7.2"
+    "concurrently": "^6.2.0"
   }
 }
