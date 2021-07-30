@@ -21,8 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: checkout repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
       - name: checkout submodules
@@ -34,18 +33,5 @@ jobs:
       - name: heroku deploy
         uses: behe/heroku-build@v1
         with:
-          app-name: "project-combined"
-          api-key: "${{secrets.HEROKU_API_KEY}}"
-
-      # Runs a set of commands using the runners shell
-  # heroku:
-  #   runs-on: ubuntu-latest
-
-  #   # Steps represent a sequence of tasks that will be executed as part of the job
-  #   steps:
-  #     - uses: CDNievas/heroku-action@v1.0 # This is the action
-  #       with:
-  #         heroku_email: ${{secrets.HEROKU_EMAIL}}
-  #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-  #         heroku_app_name: "project-combined"
-  #         dynamicFiles: true
+          app-name: project-combined
+          api-key: ${{secrets.HEROKU_API_KEY}}
