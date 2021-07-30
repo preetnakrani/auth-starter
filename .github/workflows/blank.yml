@@ -23,6 +23,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout repo
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -30,21 +32,21 @@ jobs:
 
       # Runs a set of commands using the runners shell
 
-  submoduleCheckout:
-    runs-on: ubuntu-latest
+  # submoduleCheckout:
+  #   runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: checkout submodules
-        run: git submodule foreach git checkout main
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:
+  #     - name: checkout submodules
+  #       run: git submodule foreach git checkout main
 
-  submodulePull:
-    runs-on: ubuntu-latest
+  # submodulePull:
+  #   runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: checkout submodules
-        run: git submodule foreach git pull
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:
+  #     - name: checkout submodules
+  #       run: git submodule foreach git pull
 
   heroku:
     runs-on: ubuntu-latest
